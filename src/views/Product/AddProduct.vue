@@ -34,13 +34,12 @@
             </div>
             <div class="col-3"></div>
         </div>
-
-        <!--        Form-->
     </div>
 </template>
 <script>
 export default {
     props: ["baseURL"],
+    // dibawah ini ngestate datany biar pas masuk halaman jadi kosong
     data() {
         return {
             product: {
@@ -52,6 +51,7 @@ export default {
             }
         }
     },
+    // dibawah ini function tanpa pake vuex, lngsung tembak api ke BE
     methods: {
         addProduct() {
             this.$store.dispatch('product/CREATE_PRODUCT', this.product).then(() => {

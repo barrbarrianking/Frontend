@@ -1,3 +1,4 @@
+// dsini bwt mutasi atau ngeset datanya
 export default {
     setProducts(state, payload) {
         state.products = payload

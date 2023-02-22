@@ -1,3 +1,4 @@
+<!-- template itu fungsinya sama kya html -->
 <template>
   <div>
     <Navbar />
@@ -7,6 +8,7 @@
   </div>
 </template>
 
+<!-- script itu proses yg dilakuinnya -->
 <script>
 import { mapGetters } from 'vuex'
 import ProductBox from "./components/Product/ProductBox.vue";
@@ -14,6 +16,7 @@ import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue"
 
 export default {
+  // components ya bwt ngedefine ada komponen apa aja yg dipake
   components: { Navbar, Footer, ProductBox },
   data() {
     return {

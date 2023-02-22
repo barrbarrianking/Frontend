@@ -1,3 +1,4 @@
+// ini vuex indexnya
 import Vue from 'vue'
 import Vuex from 'vuex'
 

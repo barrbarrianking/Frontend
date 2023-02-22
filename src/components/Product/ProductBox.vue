@@ -20,6 +20,7 @@
     </div>
 </template>
 <script>
+// swall ato sweetalert itu dipake bwt nampilin notifikasi si prosesnya itu success ato failed
 import swal from 'sweetalert'
 
 export default {

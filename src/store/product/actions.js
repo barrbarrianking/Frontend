@@ -1,7 +1,11 @@
+//ini vuex bwt manggil function berhubungan sma produk
 import axios from "axios"
+// cookies itu berhubungan sma token"an, jdi dia kya baca tokenny ini tuh apa dan siapa role userny
 import Cookies from 'js-cookie'
 
+
 export default {
+    //ini function load semua produk
     LOAD_PRODUCTS: async ({commit}) => {
         return new Promise((resolve, reject) => {
             axios({
@@ -16,6 +20,7 @@ export default {
                 .catch(error => { reject(error) })
         })
     },
+    // ini function load produk tertentu aja based on product_id
     LOAD_PRODUCT: async ({commit}, payload) => {
         return new Promise((resolve, reject) => {
             axios({
@@ -31,6 +36,7 @@ export default {
                 .catch(error => { reject(error) })
         })
     },
+    // ini function delete produk
     DELETEPRODUCT: async ({commit, dispatch}, payload) => {
         const token = Cookies.get('token')
         return new Promise((resolve, reject) => {
@@ -56,6 +62,7 @@ export default {
                 })
         })
     },
+    //ini function add product
     CREATE_PRODUCT: async ({commit, dispatch}, payload) => {
         const token = Cookies.get('token')
         console.log('payload', payload)
@@ -85,6 +92,7 @@ export default {
                 })
         })
     },
+    //ini fuction edit produk
     UPDATE_PRODUCT: async ({commit, dispatch}, payload) => {
         const token = Cookies.get('token')
         console.log('payload', payload)
@@ -114,6 +122,7 @@ export default {
                 })
         })
     },
+    //ini function search product
     SEARCHPRODUCT: async ({commit}, payload) => {
         return new Promise((resolve, reject) => {
             console.log('payload', payload)
@@ -126,18 +135,6 @@ export default {
                 .catch((err) => {
                     reject(err)
                 })
-            // axios({
-            //     method: 'GET',
-            //     url: `http://localhost:3000/searchproduct`,
-            //     data: { product_name: 'dsada' },
-            //     headers: { 'Content-Type': 'application/json' }
-            // })
-            //     .then(response => {
-            //         console.log(response.data.data)
-            //         commit('setSearchProducts', response.data.data[0])
-            //         resolve(response)
-            //     })
-            //     .catch(error => { reject(error) })
         })
     },
 }

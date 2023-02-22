@@ -50,12 +50,15 @@ export default {
     },
     props: ["baseURL"],
     computed: {
+        // ini bwt ngejalanin getter bagian get produk satuan (by product_id) dari vuex getters
         ...mapGetters({
             product: 'product/getProduct',
         })
     },
     methods: {
         async editProduct() {
+            // payload ini bwt kiriman ke BE, bwt ngeset ulang data dari product_id tsb sesuai value 
+            // dari v-model masing-masing field
             const payload = {
                 id: this.product.id,
                 data: {
@@ -66,11 +69,15 @@ export default {
                     description: this.productEdit.description
                 }
             }
+            //ini manggil function update product dari vuex
             this.$store.dispatch('product/UPDATE_PRODUCT', payload).then(() => {
+                //router push itu bwt nge-redirect ke halaman sesuai nama yg di define (mengacu ke nama di router - index.js)
                 this.$router.push({ name: 'Product' })
             })
         },
+        //async itu artinya bwt ngejalanin function ini secara bersamaan dengan function" lainnya
         async fetchData() {
+            //ini manggil function nge-get detail datanya
             await this.$store.dispatch('product/LOAD_PRODUCT', this.$route.params.id).then(response => {
                 console.log('this.product', this.product)
                 this.productEdit = this.product

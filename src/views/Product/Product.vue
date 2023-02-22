@@ -23,7 +23,6 @@
     import ProductBox from "../../components/Product/ProductBox";
     export default {
         components: {ProductBox},
-        // props:["products"],
         computed: {
             ...mapGetters({
                 products: 'product/getAllProducts',
